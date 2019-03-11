@@ -1,3 +1,3 @@
-ifeq ($(BOARD_WLAN_DEVICE),bcmdhd)
+#ifeq ($(BOARD_WLAN_DEVICE),bcmdhd)
     include $(call all-subdir-makefiles)
-endif
+#endif

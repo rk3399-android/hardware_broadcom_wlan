@@ -18,7 +18,15 @@ LOCAL_PATH := $(call my-dir)
 # ============================================================
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS := -Wno-unused-parameter
+LOCAL_CFLAGS := \
+    -Wall \
+    -Werror \
+    -Wno-format \
+    -Wno-reorder \
+    -Wno-unused-function \
+    -Wno-unused-parameter \
+    -Wno-unused-private-field \
+    -Wno-unused-variable \
 
 LOCAL_C_INCLUDES += \
 	external/libnl/include \
@@ -35,6 +43,7 @@ LOCAL_SRC_FILES := \
 	wifi_logger.cpp \
 	wifi_offload.cpp
 
+LOCAL_SHARED_LIBRARIES := librkwifi-ctrl
 LOCAL_MODULE := libwifi-hal-bcm
 LOCAL_PROPRIETARY_MODULE := true
 

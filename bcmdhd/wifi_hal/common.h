@@ -220,6 +220,11 @@ typedef struct wifi_gscan_full_result {
     u8  ie_data[1];                  // IE data to follow
 } wifi_gscan_full_result_t;
 
+enum {
+	REALTEK_WIFI = 1,
+	BROADCOM_WIFI,
+};
+
 wifi_error wifi_register_handler(wifi_handle handle, int cmd, nl_recvmsg_msg_cb_t func, void *arg);
 wifi_error wifi_register_vendor_handler(wifi_handle handle,
             uint32_t id, int subcmd, nl_recvmsg_msg_cb_t func, void *arg);
@@ -239,6 +244,7 @@ hal_info *getHalInfo(wifi_interface_handle handle);
 wifi_handle getWifiHandle(hal_info *info);
 wifi_interface_handle getIfaceHandle(interface_info *info);
 wifi_error wifi_cancel_cmd(wifi_request_id id, wifi_interface_handle iface);
+int check_wifi_chip_type();
 
 // some common macros
 
